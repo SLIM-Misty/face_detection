@@ -30,6 +30,7 @@ def get_face_emotion_information(input_file_path):
     face_client = FaceClient(ENDPOINT, CognitiveServicesCredentials(KEY))
 
     # Creating an image stream given an input image file.
+    # (returns only the number of faces found, up to 100)
     with open(input_file_path, "rb") as face_fd:
         detected_faces = face_client.face.detect_with_stream(face_fd, return_face_attributes=FaceAttributeType.emotion)
 
